@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">        
+        <link rel="stylesheet" href ="style.css">
+        <script defer src="manage_list.js"></script>
+        <script defer src="modal.js"></script>
+        <script defer src="dropdown_menu.js"></script>
+        <link rel="icon" href="img/logo2.png">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"> 
+        <title>What To Watch</title>
+    </head>
+
+    <body id="body">
+        <!--Modal that appears when a list item is clicked, visibiliy is set to "hidden" on load-->
+        <div class="modal-container" id="modal-container">
+            <form id="modal-form" action="submit">
+                <div id="modal-header">
+                    <p>Editing Item</p>
+                    <img id="close" src="img/cancel.png" alt="Close form">
+                </div>
+                <div class="modal-content">
+                    <label for="title-change">Change title : </label>
+                    <input type="text" id="title-change">
+                    <br>
+                    <label for="genre-change">Change genre : </label>
+                    <select name="genre-change" id="genre-change">
+                        <option value="Action">Action</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Biopic">Biopic</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Disaster">Disaster</option>
+                        <option value="Documentary">Documentary</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Musical">Musical</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Sci-fi">Sci-Fi</option>
+                        <option value="Suspense">Suspense</option>
+                        <option value="Thriller">Thriller</option>
+                    </select>
+                    <div class="modal-btns">
+                        <div class="delete-div">
+                            <p>Delete</p>
+                            <img id="delete-btn" src="img/delete.png" alt="Click to delete">
+                        </div>
+                        <div class="seen-div">
+                            <p>Already seen ?</p>
+                            <img id="seen-btn" src="img/edit.png" alt="Click to delete">
+                        </div>
+                    </div>    
+                    <div class="submit-btn"><input id="submit-modal" type="image" src="img/right.png" alt="submit"></div>
+                </div>
+            </form>
+        </div>
+
+         <!--blur-container div allows all elements besides the modal to be blurred when the modal is displayed-->
+         <div id="blur-container">
+            <header>
+                <div class="main" id="main">
+                    <div class="logo"><a href="index.html"><img src="img/logo2.png" alt="What To Watch" title="What To Watch"></a></div>
+                    <div id="movie-div"><a href="main.html?movie"><h1 class="selected"  id="movie-header">Movies</h1></a></div>
+                    <div id="series-div"><a href="main.html?series"><h1 id="series-header">Series</h1></a></div>
+                    <div id="custom-div"><a href="main.html?custom"><h1 id="custom-header">Custom</h1></a></div>
+                    <div class="dropdown-menu">
+                        <div id="more-div"><h1 id="more-header">+</h1></div>
+                        <div id="menu-items">
+                            <div class="menu-item"><a href="genre.html?genre" alt="genre"><h2>Sorted by Genre</h2></a></div>
+                            <div class="menu-item"><a href="seen.html?seen" alt="seen"><h2>Already Seen</h2></a></div>
+                        </div> 
+                    </div>
+                </div>
+            </header>
+    
+            <div class="blank"></div>
+
+       
+            <div id="list-page" class="list-page">
+                <form action="submit" class="form" id="form">  
+                    <label id="label-title" for="movie-title">Movie title : </label>
+                    <br>
+                    <input type="text" name="movie-title" id="movie-title" required>
+                    <br>
+                    <label for="genre">Genre : </label>
+                    <br>
+                    <select name="genre" id="genre">
+                        <option value="Action">Action</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Biopic">Biopic</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Disaster">Disaster</option>
+                        <option value="Documentary">Documentary</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Musical">Musical</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Sci-fi">Sci-Fi</option>
+                        <option value="Suspense">Suspense</option>
+                        <option value="Thriller">Thriller</option>
+                    </select>
+                    <br>
+                   <div class="submit-btn"><input type="image" src="img/right.png" alt="submit"></div>
+                    
+                </form>
+                <ul class="list" id="list">
+                </ul>
+            </div>
+            
+            <!--custom-page div is not displayed when the page is loaded, but only when the "Custom" tab is selected, in which case the list-page div above is not displayed-->
+            <div id="custom-page" class="list-page">
+                <div class="forms">
+                    <form class="form" action="submit" id="list-form">
+                        <label for="create-list">Custom list : </label>
+                        <input type="text" name="create-list" id="create-list" required>
+                        <div class="submit-btn"><input type="image" src="img/plus.png" alt="submit"></div>
+                    </form>
+        
+                    <form action="submit" class="form" id="custom-form">  
+                        <p>Category</p>
+                        <input type="radio" name="category" id="movie-cat" value="Movie" required>
+                        <label for="movie-cat">Movie</label>
+                        <input type="radio" name="category" id="series-cat" value="Series">
+                        <label for="series-cat">Series</label>
+                        <br>
+                        <label id="label-title" for="custom-title">Title : </label>
+                        <br>
+                        <input type="text" name="custom-title" id="custom-title" required>
+                        <br>
+                        <label for="custom-genre">Genre : </label>
+                        <br>
+                        <select name="custom-genre" id="custom-genre">
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Biopic">Biopic</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Disaster">Disaster</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Musical">Musical</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Sci-fi">Sci-Fi</option>
+                            <option value="Suspense">Suspense</option>
+                            <option value="Thriller">Thriller</option>
+                        </select>
+                        <br>
+                        <label for="list-choice">Add to : </label>
+                        <br>
+                        <select name="list-choice" id="list-choice">
+                            <!--This select is filled dynamically (thanks to the "render_list_choice() function in manage_list.js")-->
+                        </select>
+                        <div class="submit-btn"><input type="image" src="img/right.png" alt="submit"></div>
+                    <p class="p-modal" id="default-message-custom1">Fill the form to add your first custom list</p>
+                    <p class="p-modal" id="default-message-custom2">Add your ideas to your own lists !</p>
+                    </form>     
+                </div>
+    
+                <div class="custom-lists-container" id="custom-lists-container">
+                    <ul class="custom-list list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Divs with class "blank" exists to leave room on the top and bottom parts of the page-->
+        <div class="blank"></div>   
+   
+    </body>
+</html>

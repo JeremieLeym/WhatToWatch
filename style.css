@@ -1,0 +1,653 @@
+/* This css file defines rules for every page of the website, except for index.html*/
+
+:root{
+    --main-yellow : wheat; 
+}
+
+*{
+    margin:0px; 
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: "Singo-Sans";
+    src :url("fonts/Singo-1Goqv.ttf") format("truetype");
+}
+
+body{
+    /* Set background so that it takes the entire window without being repeated */
+    background-image: url("img/films.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+body:not(li){
+    user-select: none;
+}
+/*NAV*/
+
+header{
+    margin-left : 40px;
+    margin-top: 30px;
+}
+.main{
+    display: flex;
+}    
+
+.main div{
+    margin-right: 5%;
+}
+.main a{
+    text-decoration: none;
+}
+
+h1{
+
+    color : wheat;
+    font-family: "Singo-Sans", Arial, Helvetica, sans-serif;
+    border : double wheat 3px;
+    background-color: rgba(0, 0, 0, 0.61);
+    font-size: 40px;
+    text-align: center;
+    padding : 5px 20px; 
+    cursor: pointer;
+}
+
+h1:hover:not(.extra-header){
+    background-color:rgba(48, 47, 47, 0.726) ;
+}
+
+#more-div{
+    display: inline-block;
+}
+
+#menu-items{
+    position: absolute;
+    width: 150px; 
+    height: 81px;
+    margin-top: 14px;
+    background-color: rgba(0, 0, 0, 0.61);
+    padding : 5px 0px; 
+    border-radius: 5px;
+    visibility: hidden;
+}
+
+h2{
+    color : wheat;
+    font-family: singo-sans, sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    margin-bottom: 7px;
+    margin-left: 7px;
+}
+
+h2:hover{
+    font-size: 26px;
+}
+
+.selected{
+    font-size: 45px;
+    background-color:rgba(48, 47, 47, 0.726) ;
+}
+
+.logo img{ 
+    height: 135px;
+    margin: -35px -25px;
+    opacity: .9;
+}
+/*FORM AND LISTS*/
+
+.blank{
+    display: hidden;
+    height: 150px;
+}
+
+.list-page{
+    position: relative; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    padding-top :2%;
+}
+
+/* List styling */
+
+li{
+    font-family: roboto, sans-serif;
+}
+
+.list{
+    background-color:rgba(0, 0, 0, 0.726);
+    width: 65%;
+    font-size: 19px; 
+    border: double 2px var(--main-yellow); 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap : 3px; 
+    min-height: 500px;
+}
+
+.list li{
+    list-style: none;
+    color: white; 
+    padding: 10px 10px;  
+}
+
+.list li:hover{
+    background-color:rgba(48, 47, 47, 0.726) ;
+    cursor: pointer;
+}
+
+
+.list .movie-title{
+    font-size: 17px;
+    margin-bottom: 2px;
+}
+
+.list p{ 
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+}
+
+.delete-button{
+    height: 12px;
+    cursor: pointer;
+    float: left; 
+    margin-right: 6px;
+    margin-top: 4px;
+}
+
+.last-added{
+    animation : last-elt 0.3s linear; 
+}
+
+.default-message{
+    position: absolute; 
+    font-family: Roboto, sans-serif;
+    font-style: italic;
+    font-size: 16px;
+}
+
+/* Form styling */
+
+#form{
+    position: sticky;
+    top: 100px; 
+}
+.form{
+    background-color: var(--main-yellow);
+    width: 20%;
+    padding: 15px 15px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    opacity: 0.9;
+
+}
+
+input[type="text"]{
+    outline: none; 
+    border: none; 
+    background:none;
+    width: 20%;
+    font-size: 15px;
+    width: 90%;
+    font-weight: 300;
+    margin-bottom: 9px;
+    padding-left: 5px;
+    padding-bottom: 1px;
+    border-bottom: dotted black 1px;
+}
+
+select{
+    width: 80%;
+    background: none;
+    border: none;
+    font-size: 15px; 
+    appearance: none;
+    background-image: url("img/arrow.png");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: right; 
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+select:focus{
+    outline: none; 
+}
+
+.submit-btn{
+    width: 100%;
+    text-align: right;
+}
+
+input[type="image"]{
+    margin-right: 6%;
+}
+
+input[src="img/right.png"]{
+    height: 25px;
+}
+
+form input[type="text"][required]{
+    box-shadow: none;
+}
+
+/*CUSTOM PAGE*/
+
+#custom-page{
+    display: none;
+    align-items: flex-start;
+}
+#custom-page form{
+    margin-bottom : 20px; 
+    width : 100%
+}
+
+.custom-lists-container{
+    display: grid;
+    grid-gap : 25px;
+    width: 70%;
+    min-height: 500px;
+}
+
+.custom-list{
+    display: block;
+    min-height: 500px;
+    width: 100%;
+}
+
+.custom-list p{
+    text-align: left;
+}
+
+label[for="movie-cat"], label[for="series-cat"]{
+    font-size: 15px;
+}
+
+.forms{
+    width : 20%; 
+    margin-top : 65px;
+    position : sticky; 
+    top : 100px; 
+}
+
+h3{
+    text-align: center;
+    color : white;
+    font-family: Roboto, sans-serif;
+    padding : 8px; 
+    font-weight: 400;
+    border-bottom: dashed wheat 1px;
+}
+
+.list-button{
+    height: 17px;
+    margin : 11px;
+}
+
+input[src="img/plus.png"]{
+    margin-top: 4px;
+    height: 20px;
+}
+
+
+/*MODALS*/
+
+/*Modal-form*/
+
+.modal-container{
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container img{
+    height: 30px;
+    cursor: pointer;
+}
+
+#modal-header{
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+    background : rgba(2, 2, 31, 0.86);
+    color : ivory; 
+    border-radius: 15px 15px 0px 0px;
+    height: 46px;
+    padding : 12px 15px; 
+    font-style: italic;
+}
+
+#modal-header img{
+    height: 20px;
+}
+
+.modal-btns{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+
+.modal-btns div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-btns p{
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+#submit-modal{
+    height:35px;
+ }
+
+#modal-form{
+    background : ivory; 
+    width: 35%;
+    margin: 0 auto;
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1;
+    top : 100px; 
+}
+
+.modal-content{
+    padding: 15px 15px;
+}
+
+/*Already Watched Modal*/
+#AS-modal{
+    background: rgba(255, 255, 240, 0.9);
+    top : 150px;
+    left : 50%; 
+    transform : translateX(-50%); 
+    animation: AS-modal 4s forwards ;
+}
+
+/*Default messages*/
+.p-modal{
+    height: 30px;
+    width: max-content;
+    position: absolute;
+    margin-top: 15px;
+    font-size: 15px;
+    margin-left : 25px;
+    margin-right: 10px;
+    color : rgba(0, 0, 0, 0.8); 
+    font-style: italic;
+    font-family: Roboto, sans-serif;
+    border-radius: 7px;
+    background-color: rgb(241, 227, 201);
+    padding : 7px;
+    text-align: center;
+}
+
+/* GENRE & SEEN PAGES */
+
+.more-title{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 120px;
+}
+
+.more-title h1{
+    color : rgba(255, 255, 240, 0.9); 
+    border: none; 
+    cursor: auto; 
+    background: none;
+    font-size: 55px;
+}
+
+.more-title h1:hover{
+    background: none;
+}
+
+.more-title h2:hover{
+    font-size: 24px;
+}
+
+.nav{
+    margin: 15px;
+}
+
+.arrow-back{
+    transform : rotate(180deg);
+    width: 35px;
+    position: relative;
+    top:7px; 
+    margin-right: 6px;
+}
+
+nav p{
+    display: inline-block;
+    color : rgba(245, 222, 179, 0.836); 
+    font-family:singo-sans, sans-serif;
+    font-size: 30px;
+}
+
+nav p:hover{
+    color : wheat; 
+}
+
+nav a{
+    text-decoration: none;
+}
+
+.more-page{
+    display: flex;
+    justify-content: space-around;
+}
+
+.more-list{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 50%;
+    min-height: 300px;
+    background-color: rgba(0, 0, 0, 0.726);
+    border : rgba(255, 255, 240, 0.795) solid 2px;
+    border-radius: 5px; 
+}
+
+.more-list li, #modal-no-genre-selected{
+    color : ivory;
+    text-align: center;
+}
+
+.buttons-container{
+    width: 300px;
+    height: 300px;
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.genre-button{
+    border-radius:15px;
+    background-color: ivory;
+    border : 2px ivory solid;
+    padding: 7px 1%;
+    cursor: pointer;
+    width: 115px;
+    margin-bottom: 10px;
+    font-size:15px;
+    font-family: roboto, sans-serif;
+    transition : background-color .5s, border 0.5s, color 0.5s, box-shadow 0.5s;  
+}
+
+.genre-button:hover{
+    background-color: rgba(0, 0, 0, 0.726);
+    border: solid ivory 2px; 
+    color : ivory;
+}
+
+.genre-button:focus, .selected-seen-btn{
+    box-shadow : 0px 0px 8px 6px rgba(252, 231, 193, 0.767); 
+    outline: none;
+}
+
+.all-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#seen-list{
+    margin-top: 30px;
+}
+
+.modal-more{
+    position: absolute;
+    font-family: Roboto, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+}
+
+
+/*MEDIA QUERIES*/ 
+
+ @media screen and (min-width : 0px) and (max-width:600px){
+    .custom-lists-container{
+        grid-template-columns: 1fr; 
+        width: 85%;
+        
+    }
+
+    #custom-page{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forms{
+        width: 75%;
+        margin-top: 0px;
+        position:initial;
+        margin-bottom: 20px;
+    }
+
+    #form{
+        position: initial;
+    }
+
+
+    .list-page{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .form{
+        width: 75%;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    #list{ 
+        width: 80%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    h1{
+        font-size: 30px;
+        font-weight: 300;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .selected{
+        font-size: 35px;
+    }
+
+    .dropdown-menu{
+        position: absolute;
+        top: 100px;
+        left : 46%;   
+    }
+
+    #menu-items{
+        height: 70px;
+    }
+
+    .more-page{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .buttons-container{
+        margin-bottom: 50px;
+        margin-top: -75px;
+    }
+
+    .more-list{
+        width: 85%;
+    }
+
+    #seen-buttons-container{
+        margin-top: 30px;
+    }
+    .btn-container{
+        margin-top : -75px;
+    }
+
+    #modal-form{
+        width : 70%;
+    }
+ }
+
+ 
+ @media screen and (min-width : 1001px) and (max-width:1600px){
+    .custom-lists-container{
+        grid-template-columns: repeat(3,1fr);    
+    }
+ }
+
+ 
+ @media screen and (min-width : 1601px) {
+    .custom-lists-container{
+        grid-template-columns: repeat(4,1fr); 
+    }
+ }
+
+
+ /*ANIMATIONS*/
+
+ @keyframes last-elt{
+     from{
+        transform:translateY(50px) ;
+        opacity: 0%;
+     }
+     to{
+        transform : translateX(0px);
+        opacity: 100%;
+    }
+ }
+
+ @keyframes AS-modal{
+     0%{
+         opacity: 100%;
+     }
+     75%{
+         opacity: 60%;
+     }
+     100%{
+         opacity: 0%;
+     }
+ }
+
