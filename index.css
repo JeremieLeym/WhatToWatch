@@ -40,8 +40,7 @@ footer{
 }
 
 .main{
-    margin-top: min(50px);    
-
+    margin-top: 50px;
 }
 
 .logo{
@@ -133,7 +132,21 @@ button:hover{
     }
 }
 
-@media screen and (max-height : 6800px){
+@media screen and (max-height : 800px){
+    .main{
+        margin-top: 20px;
+    }
+    .logo img{
+        height: 150px;
+    }
+
+    button{
+        font-size: 45px;
+    }
+
+    nav{
+        margin-top: 0px;
+    }
 }
 
 /*ANIMATIONS*/
