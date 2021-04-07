@@ -28,6 +28,8 @@ body{
 body:not(li){
     user-select: none;
 }
+
+
 /*NAV*/
 
 header{
@@ -114,6 +116,7 @@ h2:hover{
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     padding-top :2%;
+    margin-top: 100px;
 }
 
 /* List styling */
@@ -461,6 +464,7 @@ nav a{
     background-color: rgba(0, 0, 0, 0.726);
     border : rgba(255, 255, 240, 0.795) solid 2px;
     border-radius: 5px; 
+    margin-bottom: 50px;
 }
 
 .more-list li, #modal-no-genre-selected{
@@ -521,7 +525,7 @@ nav a{
 
 /*MEDIA QUERIES*/ 
 
- @media screen and (min-width : 0px) and (max-width:600px){
+ @media (min-width : 0px) and (max-width:600px){
     .custom-lists-container{
         grid-template-columns: 1fr; 
         width: 85%;
@@ -548,6 +552,7 @@ nav a{
     .list-page{
         width: 100%;
         flex-direction: column;
+        margin-top: 150px;
     }
 
     .form{
@@ -612,14 +617,14 @@ nav a{
  }
 
  
- @media screen and (min-width : 1001px) and (max-width:1600px){
+ @media (min-width : 1001px) and (max-width:1600px){
     .custom-lists-container{
         grid-template-columns: repeat(3,1fr);    
     }
  }
 
  
- @media screen and (min-width : 1601px) {
+ @media (min-width : 1601px) {
     .custom-lists-container{
         grid-template-columns: repeat(4,1fr); 
     }

@@ -40,7 +40,7 @@ footer{
 }
 
 .main{
-    margin-top: 180px;    
+    margin-top: min(50px);    
 
 }
 
@@ -81,6 +81,10 @@ nav{
 
 nav a{
     text-decoration: none;
+}
+
+a:active, a:focus{
+    outline: 0;
 }
 
 button{
@@ -127,6 +131,9 @@ button:hover{
     h2{
         font-size: 0.9em;
     }
+}
+
+@media screen and (max-height : 6800px){
 }
 
 /*ANIMATIONS*/
